@@ -31,14 +31,13 @@ public class LifeStores {
         List<Product> products = new ArrayList<>();
         // Extraction des produits
         extractProd("./src/com/simplon/Products.csv", products);
-        Distributor distributor = new Distributor();
        //2/remplir le distributeur avec les produits
+        Distributor distributor = new Distributor();
         distributor.addProducts(products);
         System.out.println(distributor);
         //3/le distributeur vend une bouteille aquarius, quel est le résultat?
-        Product aquarius = distributor.findProduct("aquarius");
-        System.out.println(distributor.sell(aquarius));
-        System.out.println(distributor.sell(distributor.findProduct("toto"))); //test achat produit qui n'existe pas
+        System.out.println("vente d'aquarius validé ? : "+distributor.sell(new Product("aquarius")));
+        System.out.println("vente de toto validé ? : "+distributor.sell(new Product("toto"))); //test achat produit qui n'existe pas
          //4/afficher si le distributeur est rempli
         System.out.println("Le distributeur est rempli ? : "+distributor.filled());
         //affichage distributeur
@@ -46,13 +45,13 @@ public class LifeStores {
         //6/remplir le family mart avec les mêmes produits et un employé
         FamilyMart familyMart = new FamilyMart(1);
         familyMart.addProducts(products);
-        //7/afficher si le magasin est rempli
+         //7/afficher si le magasin est rempli
         System.out.println("Le familyMart est rempli ? : "+familyMart.filled());
         //8/le family mart vend un pocky, quel est le résultat ?
-        System.out.println(familyMart.sell(familyMart.findProduct("pocky")));
+        System.out.println("vente de pocky validé ? : "+familyMart.sell(new Product("pocky")));
         //9/il est 23h, l’employé rentre chez lui. Le family mart vend un evian. Quel est le résultat ?
         familyMart.setNbEmploys(0);
-        System.out.println(familyMart.sell(familyMart.findProduct("evian")));
+        System.out.println("vente d'evian validé ? : "+familyMart.sell(new Product("evian")));
         //10/afficher le contenu du magasin
         System.out.println(familyMart);
     }

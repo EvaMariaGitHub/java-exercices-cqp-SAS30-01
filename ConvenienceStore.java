@@ -5,6 +5,6 @@ package com.simplon;
  */
 public interface ConvenienceStore {
 
-    public Boolean sell(Product product);
-    public Boolean filled();
+    Boolean sell(Product product);
+    Boolean filled();
 }
